@@ -13,3 +13,7 @@ output "Private Subnets" {
 output "Bastion DNS" {
   value = "${aws_route53_record.bastion.name}"
 }
+
+output "Bastion SG ID" {
+  value = "${aws_security_group.bastion_host.id}"
+}
