@@ -1,0 +1,92 @@
+{
+    "variables" : {
+        "region" : "eu-west-2",
+        "source_ami" : "ami-0274e11dced17bb5b"
+    },
+    "builders" : [
+        {
+            "type" : "amazon-ebs",
+            "profile" : "default",
+            "region" : "{{user `region`}}",
+            "instance_type" : "t2.micro",
+            "source_ami" : "{{user `source_ami`}}",
+            "ssh_username" : "ec2-user",
+            "ami_name" : "jenkins-master-2.150.1",
+            "ami_description" : "Amazon Linux Image with Jenkins Server",
+            "run_tags" : {
+                "Name" : "packer-builder-docker"
+            },
+            "tags" : {
+                "Tool" : "Packer",
+                "Author" : "mlabouardy"
+            }
+        }
+    ],
+    "provisioners" : [
+        {
+            "type" : "file",
+            "source" : "./basic-security.groovy",
+            "destination" : "/tmp/basic-security.groovy"
+        },
+        {
+            "type" : "file",
+            "source" : "./jenkins.install.UpgradeWizard.state",
+            "destination" : "/tmp/jenkins.install.UpgradeWizard.state"
+        },
+        {
+            "type" : "file",
+            "source" : "./disable-cli.groovy",
+            "destination" : "/tmp/disable-cli.groovy"
+        },
+        {
+            "type" : "file",
+            "source" : "./csrf-protection.groovy",
+            "destination" : "/tmp/csrf-protection.groovy"
+        },
+        {
+            "type" : "file",
+            "source" : "./disable-jnlp.groovy",
+            "destination" : "/tmp/disable-jnlp.groovy"
+        },
+        {
+            "type" : "file",
+            "source" : "./jenkins",
+            "destination" : "/tmp/jenkins"
+        },
+        {
+            "type" : "file",
+            "source" : "/Users/mlabouardy/.ssh/id_rsa",
+            "destination" : "/tmp/id_rsa"
+        },
+        {
+            "type" : "file",
+            "source" : "/Users/mlabouardy/.ssh/id_rsa.pub",
+            "destination" : "/tmp/id_rsa.pub"
+        },
+        {
+            "type" : "file",
+            "source" : "./node-agent.groovy",
+            "destination" : "/tmp/node-agent.groovy"
+        },
+        {
+            "type" : "file",
+            "source" : "./plugins.txt",
+            "destination" : "/tmp/plugins.txt"
+        },
+        {
+            "type" : "file",
+            "source" : "./install-plugins.sh",
+            "destination" : "/tmp/install-plugins.sh"
+        },
+        {
+            "type" : "file",
+            "source" : "./telegraf.conf",
+            "destination" : "/tmp/telegraf.conf"
+        },
+        {
+            "type" : "shell",
+            "script" : "./setup.sh",
+            "execute_command" : "sudo -E -S sh '{{ .Path }}'"
+        }
+    ]
+}
