@@ -17,6 +17,12 @@
 
 ## CI/CD for Dockerized Microservices
 
-
+<p align="center">
+    <img src="microservices.png">
+</p>
 
 ## CI/CD for Serverless Functions
+
+<p align="center">
+    <img src="functions.png">
+</p>
