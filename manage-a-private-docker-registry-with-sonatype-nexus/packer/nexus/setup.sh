@@ -13,7 +13,7 @@ cd /opt/nexus
 wget https://download.sonatype.com/nexus/3/latest-unix.tar.gz
 tar -xvf latest-unix.tar.gz
 rm latest-unix.tar.gz
-mv nexus-3.12.0-01 nexus
+mv nexus-3.14.0-04 nexus
 useradd nexus
 chown -R nexus:nexus /opt/nexus/
 ln -s /opt/nexus/nexus/bin/nexus /etc/init.d/nexus
