@@ -2,7 +2,7 @@
 
 ## Learning Objectives
 
-* Core Concepts
+* Core Concepts [[Youtube](https://www.youtube.com/watch?v=eAvxtPQVtDA)]
 * Build an AWS VPC using Infrastructure as Code
 * Deploy a Highly available Jenkins cluster on AWS
 * Manage a Private Docker Registry with Sonatype Nexus
