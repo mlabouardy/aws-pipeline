@@ -1,0 +1,15 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "RESTful API based on DynamoDB",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Mohamed Labouardy",
+  "license": "MIT",
+  "dependencies": {
+    "aws-sdk": "^2.406.0",
+    "express": "^4.16.4"
+  }
+}

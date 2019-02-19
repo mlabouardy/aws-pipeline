@@ -1,0 +1,44 @@
+<html ng-app="app">
+    <head>
+        <title>Movies Database</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <style>
+            .cover{
+                height: 50%;
+            }
+        </style>
+    </head>
+    <body class="container" ng-controller="MainCtrl">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Cover</th>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>User score</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="movie in movies">
+                    <td>
+                        <img src="{{movie.cover}}" class="cover"/>
+                    </td>
+                    <td>{{movie.title}}</td>
+                    <td>{{movie.description}}</td>
+                    <td>{{movie.userscore}} %</td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+    <script>
+        var app = angular.module('app', []);
+        app.controller('MainCtrl', function($scope, $http) {
+            $http.get("http://localhost:3000/movies")
+            .then(function(response) {
+                $scope.movies = response.data
+            });
+        });
+    </script>
+</html>
