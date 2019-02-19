@@ -2,3 +2,4 @@
 *.tfstate
 variables.tfvars
 .DS_Store
+node_modules/
