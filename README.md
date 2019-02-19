@@ -3,7 +3,7 @@
 ## Learning Objectives
 
 * Core Concepts [[YouTube](https://www.youtube.com/watch?v=eAvxtPQVtDA)] [[Slides](https://fr.slideshare.net/medfreaky/cicd-for-microservices-and-serverless-functions-in-aws-core-concepts)]
-* Build an AWS VPC using Infrastructure as Code [[YouTube](https://www.youtube.com/watch?v=1tD5moDGKHM)]
+* Build an AWS VPC using Infrastructure as Code [[YouTube](https://www.youtube.com/watch?v=1tD5moDGKHM)] [[Slides](https://fr.slideshare.net/medfreaky/cicd-for-microservices-and-serverless-functions-in-aws-build-an-aws-vpc-using-infrastructure-as-code)]
 * Deploy a Highly available Jenkins cluster on AWS [[YouTube](https://www.youtube.com/watch?v=XCyiYoOZayI)]
 * Manage a Private Docker Registry with Sonatype Nexus [[YouTube](https://www.youtube.com/watch?v=YqswOqE-kD4)]
 * Build a Docker Swarm cluster on AWS
