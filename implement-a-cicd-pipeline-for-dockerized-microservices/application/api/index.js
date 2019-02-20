@@ -1,6 +1,9 @@
 const AWS = require('aws-sdk');
 const App = require('express')();
+const Cors = require('cors');
 const Config = require('./config');
+
+App.use(Cors())
 
 AWS.config.update({
     region: Config.REGION,

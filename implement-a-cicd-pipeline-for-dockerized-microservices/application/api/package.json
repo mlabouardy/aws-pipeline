@@ -10,6 +10,7 @@
   "license": "MIT",
   "dependencies": {
     "aws-sdk": "^2.406.0",
+    "cors": "^2.8.5",
     "express": "^4.16.4"
   }
 }

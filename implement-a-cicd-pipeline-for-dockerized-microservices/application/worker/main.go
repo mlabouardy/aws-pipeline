@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -101,6 +102,9 @@ func insertMovie(movie Movie) error {
 			"description": dynamodb.AttributeValue{
 				S: aws.String(movie.Description),
 			},
+			"userscore": dynamodb.AttributeValue{
+				N: aws.String(fmt.Sprintf("%v", movie.UserScore)),
+			},
 		},
 	})
 	_, err := req.Send()
@@ -133,7 +137,7 @@ func main() {
 			}
 			movie, err := parseHTML(html)
 
-			log.Println("Movie:", movie.Title)
+			log.Println("Movie:", movie)
 
 			err = insertMovie(movie)
 			if err != nil {
